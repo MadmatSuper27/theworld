@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The World Apartment | Your Luxury Stay in Florence</title>
+    <meta name="description"
+        content="Experience the magic of Florence at The World Apartment. A premium, comfortable retreat in the heart of Tuscany.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo" style="display: flex; align-items: center; gap: 15px;">
+            <img src="assets/logos/TWALogoNero.png" alt="TWA Logo" style="height: 60px;">
+            <span
+                style="font-family: var(--font-heading); font-size: 1.2rem; font-weight: 800; color: var(--secondary-color); text-transform: uppercase; letter-spacing: 1px;">The
+                World Apartment</span>
+        </div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#amenities">Amenities</a>
+            <a href="#location">Location</a>
+        </div>
+        <button class="btn-book" onclick="scrollToBooking()">Book Now</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-slides">
+            <div class="hero-slide active"
+                style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('assets/images/LivingRoom.jpg');">
+            </div>
+            <div class="hero-slide"
+                style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('assets/images/Bedroom.jpg');">
+            </div>
+            <div class="hero-slide"
+                style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('assets/images/Kitchen.jpg');">
+            </div>
+            <div class="hero-slide"
+                style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('assets/images/Bathroom.jpg');">
+            </div>
+        </div>
+        <div class="hero-content">
+            <h1 style="font-size: 3.5rem;">Your Home in <br>The Heart of Florence</h1>
+            <p style="font-size: 1.2rem; margin-bottom: 20px;">Elegance, Comfort, and Tuscan Charm.</p>
+
+            <!-- Review Glass Tile -->
+            <div class="review-glass">
+                <p class="quote">"This was by far our best stay in Italy."</p>
+                <p class="author">- Hector (USA)</p>
+            </div>
+
+            <button class="btn-book" onclick="scrollToBooking()"
+                style="padding: 18px 40px; font-size: 1.1rem; margin-top: 20px;">Book Now</button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="container">
+        <div class="section-header">
+            <h2>Welcome to Your Tuscan Retreat</h2>
+            <p>Located just moments from the historic center, The World Apartment offers a peaceful sanctuary with
+                modern luxuries.</p>
+        </div>
+        <!-- Short description about the apartment -->
+        <div style="display: flex; gap: 50px; align-items: center; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 300px;">
+                <h3>Modern Comfort, Historic Setting</h3>
+                <br>
+                <p>The World Apartment is a one-bedroom rental property designed for up to four guests. Whether you're
+                    here for art, food, or relaxation, our home provides everything you need for an unforgettable stay.
+                </p>
+            </div>
+            <div style="flex: 1; min-width: 300px;">
+                <img src="assets/images/Bedroom.jpg" alt="The World Apartment Bedroom"
+                    style="width: 100%; border-radius: 12px; box-shadow: var(--shadow-lg);">
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="container">
+        <div class="section-header">
+            <h2>The Gallery</h2>
+            <p>Take a virtual tour of our beautifully appointed spaces.</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="assets/images/Living.jpg" alt="Living Area">
+            </div>
+            <div class="gallery-item">
+                <img src="assets/images/Bed.jpg" alt="Bedroom">
+            </div>
+            <div class="gallery-item">
+                <img src="assets/images/Kitchen.jpg" alt="Modern Kitchen">
+            </div>
+            <div class="gallery-item">
+                <img src="assets/images/Bathroom.jpg" alt="Elegant Bathroom">
+            </div>
+            <div class="gallery-item">
+                <img src="assets/images/SofaAndKitchen.jpg" alt="Open Space">
+            </div>
+            <div class="gallery-item">
+                <img src="assets/images/Hallway.jpg" alt="Apartment Hallway">
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Widget Area -->
+    <section id="booking" style="background: var(--accent-color); color: var(--background-color);">
+        <div class="container" style="text-align: center;">
+            <div class="section-header">
+                <h2 style="color: var(--background-color);">Book Your Stay</h2>
+                <p style="color: rgba(254, 249, 231, 0.7);">Select your dates to check availability and book directly.
+                </p>
+            </div>
+            <div id="booking-widget-container"
+                style="background: var(--white); padding: 50px 20px; border-radius: 12px; min-height: 400px; color: var(--text-color); display: flex; justify-content: center; align-items: center; flex-direction: column; margin: 0 auto; max-width: 1000px; box-shadow: var(--shadow-lg);">
+                <div id="vikey-booking-engine-widget"
+                    style="width: 100%; max-width: 800px; margin: 0 auto; display: flex; justify-content: center;">
+                </div>
+                <script async
+                    src="https://storage.googleapis.com/vikey-widgets/bookingengine/vikey-booking-engine-widget.js"
+                    data-client-key="FD1aHP8Uo2vvkFmUcD0g8Rt100000000" data-vikey-language="it"></script>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities -->
+    <section id="amenities" class="container">
+        <div class="section-header">
+            <h2>Everything You Need</h2>
+            <p>We've thought of every detail to ensure your stay is as smooth and comfortable as possible.</p>
+        </div>
+        <div class="amenities-grid">
+            <div class="amenity-card">
+                <div class="amenity-icon" style="margin-bottom: 20px;"><svg width="32" height="32" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                        <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                        <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                        <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                    </svg></div>
+                <h3>High-Speed WiFi</h3>
+                <p>Stay connected with fiber optic internet.</p>
+            </div>
+            <div class="amenity-card">
+                <div class="amenity-icon" style="margin-bottom: 20px;"><svg width="32" height="32" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2v20"></path>
+                        <path d="M2 12h20"></path>
+                        <path d="m4.93 4.93 14.14 14.14"></path>
+                        <path d="m19.07 4.93-14.14 14.14"></path>
+                    </svg></div>
+                <h3>Air Conditioning</h3>
+                <p>Keep cool during the Tuscan summer.</p>
+            </div>
+            <div class="amenity-card">
+                <div class="amenity-icon" style="margin-bottom: 20px;"><svg width="32" height="32" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path>
+                        <path d="M7 2v20"></path>
+                        <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path>
+                    </svg></div>
+                <h3>Full Kitchen</h3>
+                <p>Equipped with everything for home cooking.</p>
+            </div>
+            <div class="amenity-card">
+                <div class="amenity-icon" style="margin-bottom: 20px;"><svg width="32" height="32" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="13" r="8"></circle>
+                        <path d="M12 9v4l2 2"></path>
+                        <path d="M5 3 2 6"></path>
+                        <path d="m22 6-3-3"></path>
+                        <path d="M6.38 18.7a10 10 0 0 0 11.24 0"></path>
+                    </svg></div>
+                <h3>Washing Machine</h3>
+                <p>Perfect for longer stays.</p>
+            </div>
+            <div class="amenity-card">
+                <div class="amenity-icon" style="margin-bottom: 20px;"><svg width="32" height="32" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg></div>
+                <h3>Self Check-in</h3>
+                <p>Arrive at your convenience with smart access.</p>
+            </div>
+            <div class="amenity-card">
+                <div class="amenity-icon" style="margin-bottom: 20px;"><svg width="32" height="32" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+                        <polyline points="17 2 12 7 7 2"></polyline>
+                    </svg></div>
+                <h3>Smart TV</h3>
+                <p>Your favorite shows, ready to stream.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" style="background: var(--background-color);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Location</h2>
+                <p>Perfectly situated at via Atto vannucci, 15, Firenze.</p>
+            </div>
+            <div style="display: flex; gap: 40px; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 300px;">
+                    <h3>Getting Around</h3>
+                    <br>
+                    <ul style="display: flex; flex-direction: column; gap: 15px;">
+                        <li><strong>20-min Walk:</strong> To the Historic Center</li>
+                        <li><strong>7-min Tram:</strong> To Santa Maria Novella Train Station</li>
+                        <li><strong>15-min Drive:</strong> From Florence Airport (FLR)</li>
+                        <li><strong>Nearby:</strong> Fortezza da Basso & Parco delle Cascine</li>
+                    </ul>
+                </div>
+                <div
+                    style="flex: 2; min-width: 400px; height: 450px; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-md);">
+                    <iframe
+                        src="https://maps.google.com/maps?q=via%20Atto%20vannucci%2015%20Firenze&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="container">
+        <div class="section-header">
+            <h2>Guest Information</h2>
+            <p>Everything you need to know about your stay at The World Apartment.</p>
+        </div>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div style="margin-bottom: 30px; border-bottom: 1px solid #ddd; padding-bottom: 15px;">
+                <h3 style="font-size: 1.2rem; margin-bottom: 10px;">How do I check in?</h3>
+                <p style="color: var(--text-muted);">We use an Easy Online Check-In system. You'll receive a secure link
+                    24 hours before arrival to provide your info and get your digital access code.</p>
+            </div>
+            <div style="margin-bottom: 30px; border-bottom: 1px solid #ddd; padding-bottom: 15px;">
+                <h3 style="font-size: 1.2rem; margin-bottom: 10px;">What are the check-in and check-out times?</h3>
+                <p style="color: var(--text-muted);">Check-in is from 3:00 PM onwards. Check-out is by 10:00 AM.</p>
+            </div>
+            <div style="margin-bottom: 30px; border-bottom: 1px solid #ddd; padding-bottom: 15px;">
+                <h3 style="font-size: 1.2rem; margin-bottom: 10px;">Is parking available?</h3>
+                <p style="color: var(--text-muted);">Yes, there are several parking options nearby, including on-street
+                    parking and secure garages. We can provide details upon booking.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="padding: 60px 0; background: #1a1a1a; color: white; text-align: center;">
+        <div class="logo" style="margin-bottom: 30px;">
+            <img src="assets/logos/TWALogoBianco.png" alt="TWA Logo" style="height: 80px;">
+        </div>
+        <p style="font-size: 1.1rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;">The World
+            Apartment</p>
+        <p style="color: rgba(255,255,255,0.5);">&copy; 2026 The World Apartment Florence. All rights reserved.</p>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="Full View">
+            <div class="lightbox-nav">
+                <button class="prev-btn">&#10094;</button>
+                <button class="next-btn">&#10095;</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
