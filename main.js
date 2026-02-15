@@ -18,12 +18,15 @@ window.addEventListener('scroll', () => {
     const nav = document.querySelector('nav');
     if (window.scrollY > 50) {
         nav.style.height = '80px';
-        nav.style.background = 'rgba(255, 255, 255, 0.98)';
+        nav.style.background = 'rgba(252, 248, 241, 0.98)'; // Using the theme's cream color
+        nav.style.boxShadow = '0 10px 30px rgba(139, 94, 60, 0.1)';
     } else {
         nav.style.height = '100px';
-        nav.style.background = 'rgba(255, 255, 255, 0.8)';
+        nav.style.background = 'rgba(252, 248, 241, 0.8)';
+        nav.style.boxShadow = 'none';
     }
 });
+
 
 // Gallery Lightbox
 const lightbox = document.getElementById('lightbox');
