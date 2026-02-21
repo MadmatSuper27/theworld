@@ -69,6 +69,55 @@
         </div>
     </section>
 
+    <!-- Apartment Specs Bar -->
+    <div class="specs-bar">
+        <div class="container specs-container">
+            <div class="spec-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                <span>4 Guests</span>
+            </div>
+            <div class="spec-divider"></div>
+            <div class="spec-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"></path>
+                    <path d="M3 9V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4"></path>
+                    <path d="M13 3v6"></path>
+                    <path d="M11 3v6"></path>
+                    <path d="M3 13h18"></path>
+                </svg>
+                <span>1 Bedroom</span>
+            </div>
+            <div class="spec-divider"></div>
+            <div class="spec-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M2 4v16"></path>
+                    <path d="M2 8h18a2 2 0 0 1 2 2v10"></path>
+                    <path d="M2 17h20"></path>
+                    <path d="M6 8v9"></path>
+                </svg>
+                <span>2 Beds</span>
+            </div>
+            <div class="spec-divider"></div>
+            <div class="spec-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-2.12 0L3.5 4.38a1.5 1.5 0 0 0 0 2.12L6 9"></path>
+                    <path d="M10 5s.5 4-3 7c-3 3-7 3-7 3"></path>
+                    <path d="M14 9a1 1 0 0 1 2 0v11a1 1 0 0 1-2 0V9Z"></path>
+                    <path d="M18 9a1 1 0 0 1 2 0v11a1 1 0 0 1-2 0V9Z"></path>
+                    <path d="M14 13h6"></path>
+                    <path d="M14 17h6"></path>
+                    <path d="M10 11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path>
+                </svg>
+                <span>1 Bath</span>
+            </div>
+        </div>
+    </div>
+
     <!-- About Section -->
     <section id="about" class="container">
         <div class="section-header">
@@ -132,7 +181,7 @@
 
 
             <div id="booking-widget-container"
-                style="background: var(--white); padding: 50px 20px; border-radius: 12px; min-height: 400px; color: var(--text-color); display: flex; justify-content: center; align-items: center; flex-direction: column; margin: 0 auto; max-width: 1000px; box-shadow: var(--shadow-lg);">
+                style="padding: 50px 20px; border-radius: 12px; min-height: 400px; color: var(--text-color); display: flex; justify-content: center; align-items: center; flex-direction: column; margin: 0 auto; max-width: 1000px;">
                 <div id="vikey-booking-engine-widget"
                     style="width: 100%; max-width: 800px; margin: 0 auto; display: flex; justify-content: center;">
                 </div>
@@ -293,6 +342,50 @@
     </div>
 
     <script src="main.js"></script>
+    <script>
+        // Reach into Shadow DOM to remove the white box around the booking widget
+        function styleVikeyWidget() {
+            const widget = document.querySelector('#vikey-booking-engine-widget');
+            if (widget && widget.shadowRoot) {
+                // Ensure custom styles are injected
+                let style = widget.shadowRoot.querySelector('#twa-custom-style');
+                if (!style) {
+                    style = document.createElement('style');
+                    style.id = 'twa-custom-style';
+                    widget.shadowRoot.appendChild(style);
+                }
+                style.textContent = `
+                    .bg-white { 
+                        background-color: white !important; 
+                        border: 2px solid white !important;
+                        box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+                        color: #1F2937 !important;
+                    }
+                    /* Base styles for buttons within the widget */
+                    .p-vikeyButton,
+                    button.bg-cyan-600,
+                    button[class*="bg-cyan"] {
+                        background-color: #FF8400 !important;
+                        color: white !important;
+                        border: none !important;
+                    }
+                    /* Ensure text readability on white */
+                    .text-whiteVikey:not(.p-vikeyButton *) {
+                        color: #1F2937 !important;
+                    }
+                `;
+
+                // Directly apply styles to overcome persistent framework overrides
+                widget.shadowRoot.querySelectorAll('button').forEach(btn => {
+                    if (btn.classList.contains('bg-cyan-600') || btn.classList.contains('p-vikeyButton')) {
+                        btn.style.setProperty('background-color', '#FF8400', 'important');
+                        btn.style.setProperty('color', 'white', 'important');
+                    }
+                });
+            }
+        }
+        setInterval(styleVikeyWidget, 1000);
+    </script>
 </body>
 
 </html>
