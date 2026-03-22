@@ -127,6 +127,15 @@ nav {
     transform: scale(1.05);
 }
 
+.logo-text {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 .nav-links {
     display: flex;
     gap: 40px;
@@ -324,6 +333,17 @@ nav {
     padding: 0 20px;
 }
 
+.hero-content h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
 /* Review Glassmorphism */
 .review-glass {
     background: rgba(255, 255, 255, 0.1);
@@ -514,15 +534,34 @@ footer .logo img {
 /* Responsive */
 @media (max-width: 768px) {
     nav {
-        padding: 0 20px;
+        padding: 0 15px;
+        height: 80px;
+    }
+
+    .logo img {
+        height: 45px !important;
+    }
+
+    .logo-text {
+        font-size: 0.9rem;
+        line-height: 1.1;
     }
 
     .nav-links {
         display: none;
     }
 
+    .hero-content {
+        margin-top: 60px; /* offset for fixed navbar */
+    }
+
     .hero-content h1 {
-        font-size: 3rem;
+        font-size: 2.2rem;
+        line-height: 1.2;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
     }
 
     .section-header h2 {
