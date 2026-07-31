@@ -472,6 +472,37 @@ nav {
     color: rgba(255, 255, 255, 0.7) !important;
 }
 
+/* Vikey Booking Widget Centering & Custom Styling */
+#vikey-booking-engine-widget {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+#vikey-booking-engine-widget > div,
+#vikey-booking-engine-widget div {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+#vikey-booking-engine-widget .bg-white {
+    background-color: white !important;
+    border: 2px solid white !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+    color: #1F2937 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+#vikey-booking-engine-widget button.bg-cyan-600,
+#vikey-booking-engine-widget button[class*="bg-cyan"],
+#vikey-booking-engine-widget .p-vikeyButton {
+    background-color: #FF8400 !important;
+    color: white !important;
+    border: none !important;
+}
+
 /* Amenities */
 .amenities-grid {
     display: grid;

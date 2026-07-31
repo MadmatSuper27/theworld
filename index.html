@@ -344,48 +344,39 @@
 
     <script src="main.js"></script>
     <script>
-        // Reach into Shadow DOM to remove the white box around the booking widget
+        // Center and theme the Vikey booking widget elements in standard DOM
         function styleVikeyWidget() {
             const widget = document.querySelector('#vikey-booking-engine-widget');
-            if (widget && widget.shadowRoot) {
-                // Ensure custom styles are injected
-                let style = widget.shadowRoot.querySelector('#twa-custom-style');
-                if (!style) {
-                    style = document.createElement('style');
-                    style.id = 'twa-custom-style';
-                    widget.shadowRoot.appendChild(style);
-                }
-                style.textContent = `
-                    .bg-white { 
-                        background-color: white !important; 
-                        border: 2px solid white !important;
-                        box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
-                        color: #1F2937 !important;
-                    }
-                    /* Base styles for buttons within the widget */
-                    .p-vikeyButton,
-                    button.bg-cyan-600,
-                    button[class*="bg-cyan"] {
-                        background-color: #FF8400 !important;
-                        color: white !important;
-                        border: none !important;
-                    }
-                    /* Ensure text readability on white */
-                    .text-whiteVikey:not(.p-vikeyButton *) {
-                        color: #1F2937 !important;
-                    }
-                `;
+            if (!widget) return;
 
-                // Directly apply styles to overcome persistent framework overrides
-                widget.shadowRoot.querySelectorAll('button').forEach(btn => {
-                    if (btn.classList.contains('bg-cyan-600') || btn.classList.contains('p-vikeyButton')) {
-                        btn.style.setProperty('background-color', '#FF8400', 'important');
-                        btn.style.setProperty('color', 'white', 'important');
-                    }
-                });
-            }
+            // Target widget root and all inner div containers
+            widget.style.setProperty('display', 'flex', 'important');
+            widget.style.setProperty('justify-content', 'center', 'important');
+            widget.style.setProperty('align-items', 'center', 'important');
+            widget.style.setProperty('width', '100%', 'important');
+
+            const targets = widget.shadowRoot ? widget.shadowRoot : widget;
+
+            targets.querySelectorAll('div').forEach(el => {
+                el.style.setProperty('margin-left', 'auto', 'important');
+                el.style.setProperty('margin-right', 'auto', 'important');
+            });
+
+            targets.querySelectorAll('.bg-white').forEach(card => {
+                card.style.setProperty('background-color', 'white', 'important');
+                card.style.setProperty('box-shadow', '0 10px 30px rgba(0,0,0,0.1)', 'important');
+                card.style.setProperty('margin-left', 'auto', 'important');
+                card.style.setProperty('margin-right', 'auto', 'important');
+            });
+
+            targets.querySelectorAll('button').forEach(btn => {
+                if (btn.classList.contains('bg-cyan-600') || btn.classList.contains('p-vikeyButton') || (btn.className && typeof btn.className === 'string' && btn.className.includes('cyan'))) {
+                    btn.style.setProperty('background-color', '#FF8400', 'important');
+                    btn.style.setProperty('color', 'white', 'important');
+                }
+            });
         }
-        setInterval(styleVikeyWidget, 1000);
+        setInterval(styleVikeyWidget, 500);
     </script>
 </body>
 
